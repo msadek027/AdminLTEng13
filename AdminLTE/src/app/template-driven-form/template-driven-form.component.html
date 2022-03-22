@@ -1,0 +1,154 @@
+<style>
+  .requiredAsterisk:after {
+    content:" *";
+    color: red;
+  }
+  hr {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .form-control {
+    height: 35px;
+  
+  }
+  </style>
+<div class="container-fluid">
+  <form class="form-horizontal" role="form" #modelForm="ngForm" (ngSubmit)="modelForm.form.valid && onFormSubmit()">
+  <div class="box-header with-border">
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="float-left m-2">Template Driven Form</div>
+         
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ">
+            <div class="row m-1">
+                <div class="col-xs-6 col-sm-4"></div>
+                <div class="col-xs-6 col-sm-4"></div>
+                <div class="col-xs-6 col-sm-1"><button id="btnReset" class="btn btn-default btn-sm" type="button"><i class="glyphicon glyphicon-refresh"></i> Reset</button></div>
+                <div class="col-xs-6 col-sm-1"><button id="btnSave" class="btn btn-primary btn-sm" type="button"><i class="glyphicon glyphicon-check"></i> Save</button></div>
+                <div class="col-xs-6 col-sm-1"><button id="btnView"  class="btn btn-primary btn-sm" type="button"><i class="glyphicon glyphicon-file"></i> View</button></div>
+                <div class="col-xs-6 col-sm-1"><button id="btnDelete" class="btn btn-primary btn-sm" type="button"><i class="glyphicon glyphicon-ok"></i> Delete</button></div>
+            </div>
+        </div>
+      </div> 
+    </div>
+<hr>
+<div class="box-body">
+<div class="row">   
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Address</label>
+            <div class="col-sm-10">
+              <input type="text" [(ngModel)]="model.address" [ngClass]="{'invalid-data': address.invalid && modelForm.submitted, 'valid-data': address.valid && modelForm.submitted}"
+                required name="address" #address="ngModel" placeholder="Enter Address" class="form-control">
+  
+              <div *ngIf="address.invalid && modelForm.submitted">
+                <span style="color: red;">Please Enter Address.</span>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-4">   
+             <div class="form-group">
+          <label class="col-sm-2 control-label" for="textinput">City</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="model.city" [ngClass]="{'invalid-data': city.invalid && modelForm.submitted, 'valid-data': city.valid && modelForm.submitted}"
+              required name="city" #city="ngModel" placeholder="Enter City Name" class="form-control">
+
+            <div *ngIf="city.invalid && modelForm.submitted">
+              <span style="color: red;">Please Enter City.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="textinput">State</label>
+              <div class="col-sm-4">
+                <input type="text" [(ngModel)]="model.state" name="state" placeholder="State" class="form-control">
+              </div>
+    
+              <label class="col-sm-2 control-label" for="textinput">Postcode</label>
+              <div class="col-sm-4">
+                <input type="text" [(ngModel)]="model.postcode" [ngClass]="{'invalid-data': postcode.invalid && modelForm.submitted, 'valid-data': postcode.valid && modelForm.submitted}"
+                  required name="postcode" #postcode="ngModel" placeholder="Enter Post Code" class="form-control">
+    
+                <div *ngIf="postcode.invalid && modelForm.submitted">
+                  <span style="color: red;">Please Enter Valid Post Code.</span>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+        <div class="row">
+    
+  
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+  
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Country</label>
+            <div class="col-sm-10">
+              <select class="form-control" name="country" [(ngModel)]="model.country" #country="ngModel" [ngClass]="{'invalid-data': country.invalid && modelForm.submitted, 'valid-data': country.valid && modelForm.submitted}"
+                required>
+                <option [ngValue]="null">---Select---</option>
+                <option *ngFor="let item of countryData" [value]="item">
+                  {{item}}
+                </option>
+              </select>
+  
+              <div *ngIf="country.invalid && modelForm.submitted">
+                <span style="color: red;">Please Select Country.</span>
+              </div>
+            </div>
+          </div>
+          </div>
+   </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+          <div class="form-group">
+            <div class="col-sm-3">
+              <input type="checkbox" [(ngModel)]="model.aggrement" [ngClass]="{'invalid-data': aggrement.invalid && modelForm.submitted, 'valid-data': aggrement.valid && modelForm.submitted}" required name="aggrement" #aggrement="ngModel" class="form-check-input">
+            </div>
+            <label class="col-sm-9"> I aggree to Terms & Conditions</label>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+          <div class="form-group">
+            <div class="col-sm-12" *ngIf="aggrement.invalid && modelForm.submitted">
+              <span style="color: red;">Please Aggree with Terms & Conditions.</span>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+          <div class="form-group">
+            <div class="col-sm-12">
+              <div class="pull-right">
+                <button type="submit" class="btn btn-primary" [class.disabled]="!modelForm.form.valid" style="margin: 4px;">Save</button>
+                <button type="reset" class="btn btn-default">Reset</button>
+              </div>
+            </div>
+          </div>
+          </div>  
+      </div>
+
+</div>
+</form>
+</div>

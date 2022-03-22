@@ -1,0 +1,9 @@
+https://www.c-sharpcorner.com/article/implement-most-popular-adminlte-bootstrap-theme-in-angular-11/
+
+
+http://www.mukeshkumar.net/articles/angular/template-driven-forms-and-validation-in-angular-with-typescript
+https://www.tektutorialshub.com/angular/angular-template-driven-forms/
+https://www.tektutorialshub.com/angular/angular-reactive-forms/
+https://www.c-sharpcorner.com/article/template-driven-form-in-angular-11/
+
+ng g c ReactiveForm
