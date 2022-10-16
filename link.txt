@@ -1,9 +1,17 @@
 https://www.c-sharpcorner.com/article/implement-most-popular-adminlte-bootstrap-theme-in-angular-11/
-
-
+https://www.c-sharpcorner.com/article/create-registration-and-login-page-using-angular-7-and-web-api/
+https://jasonwatmore.com/post/2019/06/10/angular-8-user-registration-and-login-example-tutorial
+https://jasonwatmore.com/post/2020/09/09/angular-10-role-based-authorization-tutorial-with-example ==>Follows
+https://www.positronx.io/protect-angular-routes-with-canactivate-guard-for-firebase-users/ ==>Follows
 http://www.mukeshkumar.net/articles/angular/template-driven-forms-and-validation-in-angular-with-typescript
 https://www.tektutorialshub.com/angular/angular-template-driven-forms/
 https://www.tektutorialshub.com/angular/angular-reactive-forms/
 https://www.c-sharpcorner.com/article/template-driven-form-in-angular-11/
 
-ng g c ReactiveForm
+https://www.tektutorialshub.com/angular/setvalue-patchvalue-in-angular/
+
+
+https://blog.ag-grid.com/quick-filter-on-only-visible-columns/
+https://www.ag-grid.com/angular-data-grid/filter-quick/
+
+https://www.angularjswiki.com/angular/could-not-find-module-angular-devkit-build-angular/

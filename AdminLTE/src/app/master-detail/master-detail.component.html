@@ -17,36 +17,37 @@ hr {
 </style>
 <div class="container-fluid">
 <div class="box-header with-border">
-    <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="float-left m-2"> Master-Detail Info</div>
-         
-        </div>
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ">
-            <div class="row m-1">
-                <div class="col-xs-6 col-sm-4"></div>
-                <div class="col-xs-6 col-sm-4"></div>
-                <div class="col-xs-6 col-sm-1"><button id="btnReset" class="btn btn-primary btn-sm" type="button"><i class="glyphicon glyphicon-refresh"></i> Reset</button></div>
-                <div class="col-xs-6 col-sm-1"><button id="btnSave" (click)="saveItems()" class="btn btn-primary btn-sm" type="button"><i class="glyphicon glyphicon-check"></i> Save</button></div>
-                <div class="col-xs-6 col-sm-1"><button id="btnView" (click)="viewItems()" class="btn btn-primary btn-sm" type="button"><i class="glyphicon glyphicon-file"></i> View</button></div>
-                <div class="col-xs-6 col-sm-1"><button id="btnDelete" class="btn btn-primary btn-sm" type="button"><i class="glyphicon glyphicon-ok"></i> Delete</button></div>
-            </div>
-        </div>
-      </div> 
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">         
+     <div class=" text-left m-2" style="color: green;">Master-Detail Form</div> 
+    </div>
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-right">
+            <div class="btn-group m-1" role="group" aria-label="Button group with nested dropdown">
+              <button id="btnReset" (click)="resetItems()" class="btn btn-secondary btn-sm" type="button"><i class="fa fa-spinner"></i>  Reset</button>
+              <button type="button" class="btn btn-secondary mr-0 ml-0 pr-0 pl-0" disabled></button>
+              <button id="btnSave" (click)="saveItems()" class="btn btn-success btn-sm" type="button"><i class="fa fa-save"> </i> Save</button>
+              <button type="button" class="btn btn-secondary mr-0 ml-0 pr-0 pl-0" disabled></button>
+              <button id="btnView" (click)="viewItems()" class="btn btn-info btn-sm" type="button"><i class="fa fa-file"> </i> View</button>
+              <button type="button" class="btn btn-secondary mr-0 ml-0 pr-0 pl-0" disabled></button>
+              <button id="btnDelete"   class="btn btn-danger btn-sm" type="button"><i class="fa fa-trash"></i> Delete</button>
+            </div>                         
+    </div>
+  </div>  
+ 
     </div>
 <hr>
 
-    <div class="box-body">
+    <div class="box-body" style="background-color: #FFFFFF;">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 requiredAsterisk">Month-Year:</div>
             <div class="col-xs-0 col-sm-0 col-md-3 col-lg-3">
                 <div class="input-group">
-                    <select [(ngModel)]="selectedMonth" class="form-control">
+                    <select [(ngModel)]="selectedMonth" class="form-control" required>
                       <option *ngFor="let month of monthList" [ngValue]="month">{{month.MonthName}}</option>
                     </select>
                
                     <span class="input-group-btn" style="width:2px;"></span>
-                    <input type="text" id="Year" [(ngModel)]="Year" class="RequiredField form-control" />
+                    <input type="text" id="Year" [(ngModel)]="Year" class="form-control" required/>
                 </div>
             </div>
             <div class="col-xs-0 col-sm-6 col-md-3 col-lg-3"> </div>
@@ -54,7 +55,7 @@ hr {
             <div class="col-xs-0 col-sm-6 col-md-2 col-lg-2 requiredAsterisk">SetDate:</div>
             <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2">
                 <input type="date" [(ngModel)]="SetDate"  class="form-control" placeholder="Enter Joining date" value=""
-                min="01-01-2022" max="31-12-2023">
+                min="01-01-2022" max="31-12-2023" required>
             </div>
          
         </div>
@@ -64,12 +65,12 @@ hr {
           <div class="col-xs-0 col-sm-0 col-md-3 col-lg-3">
             <div class="input-group">
             <form [formGroup]="form" novalidate >
-              <select formControlName="country" class="form-control">
+              <select formControlName="country" class="form-control" required>
                 <option *ngFor="let country of countries" [ngValue]="country">{{country.name}}</option>
               </select>
             </form>
             <span class="input-group-btn" style="width:2px;"></span>
-            <select  [(ngModel)]="selectedValue" class="form-control">
+            <select  [(ngModel)]="selectedValue" class="form-control" required>
               <option *ngFor="let country of countries" [ngValue]="country">{{country.name}}</option>
   
           </select> 
@@ -78,7 +79,7 @@ hr {
           <div class="col-xs-0 col-sm-0 col-md-3 col-lg-3">  </div>
           <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2">  </div>
             <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"> 
-              <select type="number" [(ngModel)]="selectedLevel" class="form-control">
+              <select type="number" [(ngModel)]="selectedLevel" class="form-control" required>
                 <option *ngFor="let level of levels" [ngValue]="level">{{level.name2}}</option>
               </select> </div>
 
@@ -89,14 +90,14 @@ hr {
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"> 
             <label for="Date of Birth" >
             Enter the Date:<label class="requiredAsterisk"></label>
-            <input type="date" name="date" [(ngModel)]="SetDate2">
+            <input type="date" name="date" [(ngModel)]="SetDate2" required>
         </label>
       </div>
         
           <div class="col-xs-0 col-sm-6 col-md-2 col-lg-2"></div>
-          <div class="col-xs-0 col-sm-6 col-md-2 col-lg-2"></div>
+          <div class="col-xs-0 col-sm-6 col-md-2 col-lg-2">Remarks:</div>
           <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2">
-                    
+            <input type="text" id="Remarks" [(ngModel)]="Remarks" class="form-control"/>
             </div>            
           </div>
       </div>
@@ -129,7 +130,10 @@ hr {
                </div>
                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">                 
                 <button (click)="clearData()">Clear Data</button> 
-                <button (click)="btnExport()">Export To Excel</button>                          
+            
+
+          
+                	<input type="text"  id="filter-text-box" class="form-control" placeholder="QuickFilter" (input)="onFilterTextBoxChanged()">
                </div>
               </div>
          </div>
@@ -143,13 +147,15 @@ hr {
     [columnDefs]="columnDefs" 
     [defaultColDef]="defaultColDef"     
     [pagination]="true"
+    [paginationPageSize]="10"
     colResizeDefault="shift"
      rowSelection="single"   
      [autoGroupColumnDef]="autoGroupColumnDef"    
      (gridReady)="onGridReady($event)"
-       
+     [cacheQuickFilter]="true"
      (cellDoubleClicked) = "onCellDoubleClicked($event)"
      (cellClicked)="onCellClicked2($event)"
+     [animateRows]="true"
      >
     </ag-grid-angular>
    </div>
@@ -172,15 +178,18 @@ hr {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">LOV [Popup : ag Grid] </h4>
+          <h4 class="modal-title" id="myModalLabel">LOV  </h4>
         </div>
         <div class="modal-body">    
           <ag-grid-angular #agGridPopup style="width:98%; height: 300px;" 
           class="ag-theme-alpine" 
           [rowData]="dtPopup" 
           [columnDefs]="columnDefsPopup" 
-          [defaultColDef]="defaultColDefPopup"           
-          
+          [defaultColDef]="defaultColDefPopup"  
+          [pagination]="true"
+          [paginationPageSize]="10"
+          colResizeDefault="shift"
+          (gridReady)="onGridReadyPopup($event)"
           rowSelection="single"        
           (cellDoubleClicked) = "onCellDoubleClickedPopup($event)"          
            >

@@ -11,6 +11,7 @@ export class SharedService {
   readonly PhotoUrl = "http://localhost:65161/Photos/";
 
   constructor(private http: HttpClient) {}
+  
   getDeptList(): Observable < any[] > {
       return this.http.get < any > (this.APIUrl + '/department');
   }
@@ -57,7 +58,14 @@ addMasterDetail(model: any)
     return this.http.post(this.APIUrl + '/MasterDetail', model);
 }
 
-getMasterDeatilList(): Observable < any[] > {
+getMasterDetailObjectArray(): Observable < any[] > {
+  //http://localhost:65161/api/MasterDetail/
   return this.http.get < any > (this.APIUrl + '/MasterDetail');
+}
+getMasterDetailObjectArray2(): Observable < any[] > {
+  return this.http.get < any > (this.APIUrl + '/MasterDetail/GetObjectArray');
+}
+getMasterDetailObject(): Observable < any[] > {
+  return this.http.get < any > (this.APIUrl + '/MasterDetail/GetObject');
 }
 }

@@ -1,0 +1,47 @@
+
+<div class="container">
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <label for="UserName" class="col-form-label">Name:</label>
+        <input class="form-control" required placeholder="Enter UserName" id="UserName" [(ngModel)]="UserName">        
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+          <label for="Address" class="col-form-label">Address:</label>
+          <input class="form-control" required  placeholder="Enter Address" id="Address" [(ngModel)]="Address">        
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <label for="Phone" class="col-form-label">Phone:</label>
+          <input class="form-control" required  placeholder="Enter Phone" id="Phone" [(ngModel)]="Phone">        
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <label for="Email" class="col-form-label">Email:</label>
+          <input class="form-control" placeholder="Enter Email" id="Email" [(ngModel)]="Email">        
+        </div>
+      </div>
+    <div class="row mt-3">
+        <div class="col-sm-2">
+            <button type="button" id="btnReset" (click)="resetItems()"  class="btn btn-secondary"><i class="fa fa-spinner"></i> Reset</button>
+          </div>
+        <div class="col-sm-2">
+            <button type="button" id="btnSave" (click)="saveItems()" [disabled]="(UserName=='' || Address==''|| Phone=='')?true:false"  class="btn btn-success"><i class="fa fa-save"></i> Save</button>
+          </div>
+      <div class="col-sm-2">
+        <button type="button" id="btnView" (click)="viewItems()" class="btn btn-info" [disabled]="UserName === ''"><i class="fa fa-file"> </i> View</button>
+      </div>
+      <div class="col-sm-2">
+        <button type="button" id="btnDelete" (click)="deleteItems()" class="btn btn-danger" [disabled]="UserName === ''"> <i class="fa fa-trash"></i>Delete</button>
+      </div>
+      <div class="col-sm-2">
+        <button type="button" id="btnPrint"  class="btn btn-primary" [disabled]="!UserName.length"><i class="fa fa-spinner"></i> Print</button>
+      </div>
+    </div>
+
+  </div>

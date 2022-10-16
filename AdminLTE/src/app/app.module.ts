@@ -1,5 +1,15 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Firebase services + enviorment module
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,18 +34,28 @@ import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { MasterDetailComponent } from './master-detail/master-detail.component';
 
 import { AgGridModule } from 'ag-grid-angular';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
+import { NgxSpinnerModule } from "ngx-spinner"; 
 
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { TemplateDriven2FormComponent } from './template-driven2-form/template-driven2-form.component';
+import { DisableButtonExampleFormComponent } from './disable-button-example-form/disable-button-example-form.component';
+import { LoginComponent } from './login/login.component';
+
+
 
 @NgModule({
   declarations: [
+
+    
     AppComponent,
     TopnavComponent,
     AsidenavComponent,
     FooterComponent,
-    HomeComponent,
+    //HomeComponent,
     EmployeeComponent,
     ShowEmpComponent,
     AddEditEmpComponent,
@@ -44,18 +64,26 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     AddEditDepComponent,
     MasterDetailComponent,
     TemplateDrivenFormComponent,
-    ReactiveFormComponent,  
+    ReactiveFormComponent,
+    TemplateDriven2FormComponent,
+    DisableButtonExampleFormComponent,
+    LoginComponent,
  
+  
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,  
+    NgxSpinnerModule,  
     AgGridModule.withComponents([])
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [SharedService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
